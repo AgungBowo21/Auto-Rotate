@@ -1,0 +1,193 @@
+/* Font */
+
+@font-face {
+  font-family: Creativity;
+  src: url("font-2/creativityenhancesdemo-webfont.woff");
+}
+@font-face {
+  font-family: Hightech;
+  src: url("font/Hightech.otf");
+}
+@font-face {
+  font-family: norwester;
+  src: url("font-2/norwester-webfont.woff");
+}
+
+/* Style awal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  color: #1e1e1e;
+  background-color: #cdcdcd;
+  background-image: repeating-linear-gradient(
+      to right,
+      transparent 0 150px,
+      #0001 150px 151px
+    ),
+    repeating-linear-gradient(to bottom, transparent 0 150px, #0001 150px 151px),
+    linear-gradient(
+      to right,
+      rgba(205, 205, 204, 0.9),
+      rgba(205, 205, 204, 0.7)
+    ),
+    url(img/background2.jpg);
+  font-family: norwester;
+  font-size: 10px;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+header {
+  width: min(1200px, 90vw);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  height: 0;
+}
+
+.left h1 {
+  font-family: Creativity;
+  font-size: 3.8vw;
+  line-height: 0.8em;
+  margin-bottom: 0.2em;
+}
+header .left img {
+  width: 21vw;
+  margin: 0 0 0 1.7em;
+}
+header .author {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+header .author h3 {
+  font-family: Hightech;
+  font-size: 4vw;
+}
+
+header .author div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2vw;
+}
+
+header .author span {
+  font-family: Hightech;
+}
+
+header .author img {
+  width: 250px;
+  margin: auto;
+}
+
+/* Style Kedua */
+.banner {
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner .product {
+  /* background-color: red; */
+  width: 200px;
+  height: 400px;
+  position: absolute;
+  top: 155px;
+  left: 47.8%;
+  transform: translateX(-50%);
+  transition: 0.7s;
+  --left: 0px;
+  display: flex;
+}
+
+.banner .product .soda {
+  background: var(--link) repeat var(--left) 0, url(img/mockup-tin.png);
+  background-size: auto 100%;
+  width: 200px;
+  aspect-ratio: 2 / 4;
+  background-blend-mode: multiply;
+  mask-image: url(img/mockup-tin.png);
+  mask-size: auto 100%;
+  transition: 0.7s;
+  position: absolute;
+  left: 24%;
+  transform: rotateX(-50%);
+}
+
+.banner .product:hover {
+  background-repeat: repeat;
+  --left: -1205px;
+  transform: translateX(-50%) translateY(-80px);
+}
+
+.banner .rock {
+  position: absolute;
+  inset: 0 0 0 0;
+  pointer-events: none;
+}
+
+.banner .rock img {
+  position: absolute;
+  transition: 0.7s;
+}
+
+.rock img:nth-child(1) {
+  left: 50%;
+  height: auto;
+  /* position: absolute; */
+  transform: translateX(-50%);
+  bottom: -1.8em;
+  z-index: -2;
+  filter: brightness(100%);
+}
+
+.banner:has(.product:hover) .rock img:nth-child(1) {
+  transform: translateX(-50%) translateY(20px);
+  filter: brightness(80%);
+}
+
+.rock img:nth-child(2) {
+  width: 35%;
+  right: 0px;
+  bottom: -100px;
+  transform: rotate(-5deg);
+  filter: brightness(100%);
+}
+
+.banner:has(.product:hover) .rock img:nth-child(2) {
+  transform: translateX(10%) translateY(20px);
+  filter: brightness(50%);
+}
+
+.rock img:nth-child(3) {
+  width: 45%;
+  left: -320px;
+  /* bottom: 0; */
+  top: 50px;
+  filter: brightness(100%);
+}
+
+.banner:has(.product:hover) .rock img:nth-child(3) {
+  transform: translateX(-10%) translateY(15px);
+  filter: brightness(50%);
+}
+
+.banner .product .soda:nth-child(2) {
+  opacity: 0;
+}
+
+.banner .product:hover .soda:nth-child(2) {
+  opacity: 1;
+}
